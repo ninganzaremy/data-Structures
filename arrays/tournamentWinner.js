@@ -1,6 +1,4 @@
-import React from "react";
-const TournamentWinner = () => {
-	/* Tournament Winner O
+/* Tournament Winner O
 	There's an algorithms tournament taking place in which teams of programmers compete against each other to solve algorithmic problems as fast as possible. Teams compete
 	in a round robin, where each team faces off against all other teams. Only two teams compete against each other at a time, and for each competition, one team is designated
 	the home team, while the other team is the away team. In each competition there's always one winner and one loser; there are no ties. A team receives 3 points if it wins and 0
@@ -20,38 +18,31 @@ const TournamentWinner = () => {
 	// Python - 6 points
 	*/
 
-	const tournamentWinner = (competitions, results) => {
-		let winner = { score: 0, name: "" };
-		const scoreMap = {};
-		for (let i = 0; i < competitions.length; i++) {
-			let homeTeam = competitions[i][0];
-			let awayTeam = competitions[i][1];
-			if (results[i] === 0) {
-				scoreMap[awayTeam] = (scoreMap[awayTeam] || 0) + 3;
-			} else {
-				scoreMap[homeTeam] = (scoreMap[homeTeam] || 0) + 3;
-			}
-			if (scoreMap[awayTeam] >= winner.score) {
-				winner = { score: scoreMap[awayTeam], name: awayTeam };
-			} else if (scoreMap[homeTeam] >= winner.score) {
-				winner = { score: scoreMap[homeTeam], name: homeTeam };
-			}
+const tournamentWinner = (competitions, results) => {
+	let winner = { score: 0, name: "" };
+	const scoreMap = {};
+	for (let i = 0; i < competitions.length; i++) {
+		let homeTeam = competitions[i][0];
+		let awayTeam = competitions[i][1];
+		if (results[i] === 0) {
+			scoreMap[awayTeam] = (scoreMap[awayTeam] || 0) + 3;
+		} else {
+			scoreMap[homeTeam] = (scoreMap[homeTeam] || 0) + 3;
 		}
-		return winner.name;
-	};
-
-	//Sample Input
-	let competitions = [
-		["HTML", "C#"],
-		["C#", "Python"],
-		["Python", "HTML"],
-	];
-	let results = [0, 0, 1];
-	let output = tournamentWinner(competitions, results);
-	return (
-		<div>
-			<p> Arrays__TournamentWinner : {output}</p>;
-		</div>
-	);
+		if (scoreMap[awayTeam] >= winner.score) {
+			winner = { score: scoreMap[awayTeam], name: awayTeam };
+		} else if (scoreMap[homeTeam] >= winner.score) {
+			winner = { score: scoreMap[homeTeam], name: homeTeam };
+		}
+	}
+	return winner.name;
 };
-export default TournamentWinner;
+
+//Sample Input
+let competitions = [
+	["HTML", "C#"],
+	["C#", "Python"],
+	["Python", "HTML"],
+];
+let results = [0, 0, 1];
+console.log(tournamentWinner(competitions, results));
