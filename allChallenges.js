@@ -188,3 +188,61 @@ const moveElementToEnd = (array, toMove) => {
 array = [2, 1, 2, 2, 2, 3, 4, 2];
 toMove = 2;
 console.log(moveElementToEnd(array, toMove));
+
+/*Monotonic Array
+Write a function that takes in an array of integers and returns a boolean
+representing whether the array is monotonic.
+An array is said to be monotonic if its elements, from left to right, are entirely non-increasing or entirely non-decreasing.
+Non-increasing elements aren't necessarily exclusively decreasing; they simply don't increase. Similarly, non-decreasing elements aren't necessarily exclusively increasing; they simply don't decrease.
+Note that empty arrays and arrays of one element are monotonic.
+Sample Input
+array=[1, -5, -10,-1100,-1100,-1101,-1102,-9001]
+Sample Output
+true */
+
+const isMonotonic = (array) => {
+	let increasing = true;
+	let decreasing = true;
+	for (let i = 1; i < array.length; i++) {
+		if (isIncreasing(array[i], array[i - 1])) {
+			decreasing = false;
+		}
+		if (isDecreasing(array[i], array[i - 1])) {
+			increasing = false;
+		}
+	}
+	return increasing || decreasing;
+};
+const isIncreasing = (a, b) => {
+	return a > b;
+};
+const isDecreasing = (a, b) => {
+	return a < b;
+};
+array = [1, -5, -10, -1100, -1100, -1101, -1102, -9001];
+console.log(isMonotonic(array));
+
+/*Max Subset Sum No Adjacent O &
+Write a function that takes in an array of positive integers and returns the maximum sum of non-adjacent elements in the array.
+If the input array is empty, the function should return o
+Sample Input
+array = [75, 105, 120, 75, 90, 135]
+Sample Output
+330 // 75 + 120 + 135*/
+
+const maxSubsetSumNoAdjacent = (array) => {
+	for (let i = 0; i < array.length; i++) {
+		if (i < 2) continue;
+		else {
+			if (i - 3 < 0) array[i] = array[i - 2] + array[i];
+			else {
+				let previousMax = Math.max(array[i - 2], array[i - 3]);
+				array[i] = previousMax + array[i];
+			}
+		}
+	}
+	let index = array.length - 1;
+	return array.length === 0 ? 0 : array.length === 1 ? array[0] : Math.max(array[index], array[index - 1]);
+};
+array = [75, 105, 120, 75, 90, 135];
+console.log(maxSubsetSumNoAdjacent(array));
