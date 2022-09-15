@@ -9,6 +9,7 @@ Sample Input
 array = [1, 2, 3, 3, 4, 0, 10, 6, 5, -1, -3, 2, 3]
 Sample Output
 6 // 0, 10, 6, 5,-1, -3*/
+
 const longestPeak = (arr) => {
 	const UP = 1;
 	const FLAT = 0;
@@ -19,16 +20,16 @@ const longestPeak = (arr) => {
 	if (arr.length < 3) return 0;
 	for (let i = 0; i < arr.length - 1; i++) {
 		if (arr[i] < arr[i + 1]) {
-			if (state == DOWN) length = 0;
+			if (state === DOWN) length = 0;
 			state = UP;
-			length = length == 0 ? 2 : length + 1;
+			length = length === 0 ? 2 : length + 1;
 		}
-		if (arr[i] > arr[i + 1] && state != FLAT) {
+		if (arr[i] > arr[i + 1] && state !== FLAT) {
 			state = DOWN;
 			length++;
 			maxLength = Math.max(length, maxLength);
 		}
-		if (arr[i] == arr[i + 1]) {
+		if (arr[i] === arr[i + 1]) {
 			state = FLAT;
 			length = 0;
 		}

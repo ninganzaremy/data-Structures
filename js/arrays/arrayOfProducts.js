@@ -5,8 +5,7 @@ input[ i ].Note that you're expected to solve this problem without using divisio
 
 //Sample Input
 array = [5, 1, 4, 2];
-//Expected Sample output
-[8, 40, 10, 20];
+//Expected Sample output [8, 40, 10, 20];
 
 // Brute Force= O(n^2) time | O(n)space where n is the length of the input array
 

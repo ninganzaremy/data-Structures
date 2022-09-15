@@ -5,8 +5,7 @@ If no integer appears more than once, your function should return -1
 Note that you're allowed to mutate the input array.*/
 //Sample Input #1
 array = [2, 1, 5, 2, 3, 3, 4];
-//Sample output:
-2; // 2 is the first integer that appears more than once
+//Sample output: 2; // 2 is the first integer that appears more than once
 
 function firstDuplicatedValue(array) {
 	var myMap = new Map(); // Hashmap
