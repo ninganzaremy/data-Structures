@@ -23,7 +23,8 @@ remove (): 2 [6, 7, 8, 24, 8, 24, 24, 391, 76, 56, 12, 41, 48]
 peek(): 6
 insert(87): - [6, 7, 8, 24, 8, 24, 24, 391, 76, 56, 12,41, 48, 87]  */
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 class MiniHeap {
     static class MinHeap {

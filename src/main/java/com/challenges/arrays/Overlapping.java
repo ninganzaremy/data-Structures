@@ -19,9 +19,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
- public class Overlapping {
+public class Overlapping {
 
-     private static final Logger logger = LoggerFactory.getLogger(Overlapping.class);
+    private static final Logger logger = LoggerFactory.getLogger(Overlapping.class);
+
     public void mergeOverlappingIntervals(int[][] intervals) {
         if (intervals.length <= 1) {
             logger.debug(Arrays.deepToString(intervals));
