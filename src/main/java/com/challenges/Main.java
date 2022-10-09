@@ -2,6 +2,7 @@ package com.challenges;
 
 import com.challenges.arrays.NumberSum;
 import com.challenges.arrays.Overlapping;
+import com.challenges.greedy.GreedyAlgorithm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,6 +26,13 @@ public class Main {
         List<Integer[]> outputArrays = sum.fourNumberSum(array, targetSum);
         logger.debug(String.valueOf(outputArrays));
         logger.info("fourNumberSum - ENDS");
+
+        logger.info("GreedyAlgorithm - STARTED");
+        int[] queries = {3, 2, 1, 2, 6};
+        GreedyAlgorithm algo = new GreedyAlgorithm();
+        int sumOfWaitingTime = algo.minimumWaitingTime(queries);
+        logger.debug("sumOfWaitingTime = " + sumOfWaitingTime);
+        logger.info("GreedyAlgorithm - ENDS");
     }
 
 }
