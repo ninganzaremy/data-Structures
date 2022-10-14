@@ -1,0 +1,13 @@
+{
+  "name": "datastructures",
+  "version": "1.0.0",
+  "description": "Data Structures",
+  "main": "index.js",
+  "repository": "https://github.com/ninganzaremy/data-Structures",
+  "author": "Ninganza Remy <remimaradona@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.1.2",
+    "ts-jest": "^29.0.3"
+  }
+}
