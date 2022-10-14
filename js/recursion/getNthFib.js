@@ -31,3 +31,4 @@ console.debug(getNthFib(n));
 
 n = 6
 console.debug(getNthFib(n));
+module.exports = getNthFib;
