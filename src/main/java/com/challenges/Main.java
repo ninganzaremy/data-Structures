@@ -2,6 +2,7 @@ package com.challenges;
 
 import com.challenges.arrays.NumberSum;
 import com.challenges.arrays.Overlapping;
+import com.challenges.design.ParkingSystem;
 import com.challenges.greedy.GreedyAlgorithm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,23 +37,31 @@ public class Main {
         logger.info("GreedyAlgorithm - ENDS");
 
         logger.info("classPhotos - STARTED");
-        ArrayList<Integer> redShirtHeights= new ArrayList<>();
+        ArrayList<Integer> redShirtHeights = new ArrayList<>();
         redShirtHeights.add(5);
         redShirtHeights.add(8);
         redShirtHeights.add(1);
         redShirtHeights.add(3);
         redShirtHeights.add(4);
 
-        ArrayList<Integer> blueShirtHeights= new ArrayList<>();
+        ArrayList<Integer> blueShirtHeights = new ArrayList<>();
         blueShirtHeights.add(6);
         blueShirtHeights.add(9);
         blueShirtHeights.add(2);
         blueShirtHeights.add(4);
         blueShirtHeights.add(5);
         GreedyAlgorithm photo = new GreedyAlgorithm();
-        boolean classPhoto = photo.classPhotos(redShirtHeights,blueShirtHeights);
+        boolean classPhoto = photo.classPhotos(redShirtHeights, blueShirtHeights);
         logger.debug("classPhotos = " + classPhoto);
         logger.info("classPhotos - ENDS");
+
+        logger.info("ParkingSystem - STARTED");
+        ParkingSystem parkingSystem = new ParkingSystem(1, 1, 0);
+        logger.debug(String.valueOf(parkingSystem.addCar(1))); // return true because there is 1 available slot for a big car
+        logger.debug(String.valueOf(parkingSystem.addCar(2))); // return true because there is 1 available slot for a medium car
+        logger.debug(String.valueOf(parkingSystem.addCar(3))); // return false because there is no available slot for a small car
+        logger.debug(String.valueOf(parkingSystem.addCar(1))); // return false because there is no available slot for a big car. It is already occupied.
+        logger.info("ParkingSystem - ENDS");
     }
 
 }
